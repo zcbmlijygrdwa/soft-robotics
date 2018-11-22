@@ -5,10 +5,8 @@
 int top = 10;
 int delayT = 60;
 int frameCount = 0;
-Servo myservo;  // create servo object to control a servo
-// twelve servo objects can be created on most boards
 
-int pos = 0;    // variable to store the servo position
+const int airPump = 9;    //Air pump motor with npn transistor at pin 9 of Arduino
 
 const int MPU=0x68;
 int16_t AcX,AcY,AcZ,Tmp,GyX,GyY,GyZ;
@@ -22,7 +20,7 @@ Wire.write(0);
 Wire.endTransmission(true);
 Serial.begin(9600);
 
-  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+pinMode(airPump,OUTPUT);
 }
 
 
@@ -81,8 +79,23 @@ getAngle(AcX,AcY,AcZ);
 
 //send the data out the serial port
 Serial.print("Angle: ");
-Serial.print("Pitch = "); Serial.print(pitch);
+Serial.print("Pitch = "); 
+Serial.println(pitch);
+
+
 Serial.print(" | Roll = "); Serial.println(roll);
+//analogWrite(airPump,255);
+if(pitch<0){
+analogWrite(airPump,255);
+//Serial.print("fffff: ");
+//delay(300);
+}
+else
+{
+analogWrite(airPump,0);
+//Serial.print("cccc: ");
+  //delay(300);
+}
 
 Serial.print("Temp: ");
 Serial.print("Temp(F) = "); Serial.print(tf);
@@ -98,7 +111,7 @@ Serial.print("X = "); Serial.print(GyX);
 Serial.print(" | Y = "); Serial.print(GyY);
 Serial.print(" | Z = "); Serial.println(GyZ);
 Serial.println(" ");
-delay(333);
+delay(100);
 }
 
 //convert the accel data to pitch/roll
@@ -113,6 +126,8 @@ roll = atan(y/sqrt((x*x) + (z*z)));
 pitch = pitch * (180.0/3.14);
 roll = roll * (180.0/3.14) ;
 
-myservo.writeMicroseconds(calSeconds(roll));  //600 still, 500 CW full;
+
+
+
     
 }
