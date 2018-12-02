@@ -6,7 +6,9 @@ int top = 10;
 int delayT = 60;
 int frameCount = 0;
 
-const int airPump = 9;    //Air pump motor with npn transistor at pin 9 of Arduino
+const int airPump1 = 9;    //Air pump motor with npn transistor at pin 9 of Arduino
+const int airPump2 = 10;    //Air pump motor with npn transistor at pin 9 of Arduino
+
 
 const int MPU=0x68;
 int16_t AcX,AcY,AcZ,Tmp,GyX,GyY,GyZ;
@@ -20,7 +22,8 @@ Wire.write(0);
 Wire.endTransmission(true);
 Serial.begin(9600);
 
-pinMode(airPump,OUTPUT);
+pinMode(airPump1,OUTPUT);
+pinMode(airPump2,OUTPUT);
 }
 
 
@@ -85,16 +88,21 @@ Serial.println(pitch);
 
 Serial.print(" | Roll = "); Serial.println(roll);
 //analogWrite(airPump,255);
-if(pitch<0){
-analogWrite(airPump,255);
-//Serial.print("fffff: ");
-//delay(300);
+
+if(roll<0){
+  analogWrite(airPump1,255);
 }
 else
 {
-analogWrite(airPump,0);
-//Serial.print("cccc: ");
-  //delay(300);
+analogWrite(airPump1,0);
+}
+
+if(pitch<0){
+  analogWrite(airPump2,255);
+}
+else
+{
+analogWrite(airPump2,0);
 }
 
 Serial.print("Temp: ");
