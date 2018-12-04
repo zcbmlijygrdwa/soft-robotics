@@ -16,7 +16,7 @@ const int airPump1 = 6;    //Air pump motor with npn transistor at pin 9 of Ardu
 const int MPU = 0x68;
 int16_t AcX, AcY, AcZ, Tmp, GyX, GyY, GyZ;
 double pitch, roll;
-double angleThres = 0.4;
+double angleThres = 0.5;
 
 void setup() {
   Wire.begin();
@@ -145,7 +145,7 @@ void loop() {
   Serial.print(" | Y = "); Serial.print(GyY);
   Serial.print(" | Z = "); Serial.println(GyZ);
   Serial.println(" ");
-  delay(100);
+  delay(5);
 }
 
 //convert the accel data to pitch/roll
