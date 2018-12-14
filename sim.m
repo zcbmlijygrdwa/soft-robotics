@@ -81,59 +81,15 @@ for i = 1:length(t)
     
 end
 
-figure(1)
-subplot(5,1,1)
-plot(pitch_data)
-hold on
-plot(roll_data)
-hold off
-title('roll and pitch')
-legend('pitch','roll')
-xlabel('time(ms)')
-ylabel('angle(radian)')
-% 
-% subplot(5,1,2)
-% plot(pump1_data)
-% hold on
-% plot(pump2_data)
-% plot(pump3_data)
-% plot(pump4_data)
-% hold off
-% %ylim([-0.5,6.5])
-% title('pump inputs')
-% %legend('pump1-input','pump2-input','pump3-input','pump4-input')
-% xlabel('time(ms)')
-% ylabel('voltage(volt)')
+pumps_data{1} = pump1_data;
+pumps_data{2} = pump2_data;
+pumps_data{3} = pump3_data;
+pumps_data{4} = pump4_data;
 
-
-subplot(5,1,2)
-plot(pump1_data)
-ylim([-0.5,openVolt+0.5])
-title('pump1 inputs')
-%legend('pump1-input','pump2-input','pump3-input','pump4-input')
-xlabel('time(ms)')
-ylabel('voltage(volt)')
-
-subplot(5,1,3)
-plot(pump2_data)
-ylim([-0.5,openVolt+0.5])
-title('pump2 inputs')
-%legend('pump1-input','pump2-input','pump3-input','pump4-input')
-xlabel('time(ms)')
-ylabel('voltage(volt)')
-
-subplot(5,1,4)
-plot(pump3_data)
-ylim([-0.5,openVolt+0.5])
-title('pump3 inputs')
-%legend('pump1-input','pump2-input','pump3-input','pump4-input')
-xlabel('time(ms)')
-ylabel('voltage(volt)')
-
-subplot(5,1,5)
-plot(pump4_data)
-ylim([-0.5,openVolt+0.5])
-title('pump4 inputs')
-%legend('pump1-input','pump2-input','pump3-input','pump4-input')
-xlabel('time(ms)')
-ylabel('voltage(volt)')
+rotation_data{1} = pitch_data;
+rotation_data{2} = roll_data;
+plotF(openVolt,rotation_data,pumps_data,0,length(t))
+plotF(openVolt,rotation_data,pumps_data,120,250)
+plotF(openVolt,rotation_data,pumps_data,450,700)
+plotF(openVolt,rotation_data,pumps_data,700,1100)
+plotF(openVolt,rotation_data,pumps_data,1100,1350)
