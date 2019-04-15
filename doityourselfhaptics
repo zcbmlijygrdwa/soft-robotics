@@ -1,0 +1,153 @@
+
+Device overview
+{
+
+    vibrotactile devices
+    {
+        cell phones;
+        easiest way;
+    }
+
+    force feedback systems
+    {
+        fe = -fh;
+        user can feel the object;
+    }
+
+    surface displays
+    {
+        touching surface can be simulated by moving a surface based on finger's position;
+    }
+
+    tactile displays
+    {
+        spatially distributed sensations at the skin's surface;
+    }
+
+    the art of nonrealistic usefulness and realism through shortchuts
+    {
+        devices can be usefull even though they cannot deliver realistic sensations;
+        (example: LCD color display, cannot produce real optical fiilds but still useful);
+    }
+
+}
+
+
+vibrotactile stimulation
+{
+
+    rumble motor
+    {
+        a motor spins an eccentric mass;
+    }
+
+    tactor
+    {
+        a voice coil motor drives a small surface of matrial;
+        placed in contact with the skin;
+    }
+
+    inertial motor
+    {
+        combination of rumble motor(inertial mass) and tactor(voice coil- actuated);
+    }
+
+    electronics&software
+    {
+        vibrotactile can be seen as haptics sensations without "DC component";
+        can be achieved by using electronics&software designed for audio applications;
+        frequency is limited to 1000 HZ.
+    }
+}
+
+
+
+Force feedback
+{
+
+    Impedance vs Admittance approaches
+    {
+        impedance: need energe to stop from moving;
+
+        admittance: need energe to assist moving;
+    }
+
+    Ideal vs Reality
+    {
+
+        Inertia;
+
+        Structural Dynamics;
+
+        Losses;
+
+    }
+
+    Kinematic structure;
+
+
+    Sensors;
+
+    Actuators;
+
+    Amplifiers;
+
+    Control Issues
+    {
+
+        Mechanics that can be simulated;
+
+        cross-cutting isssues;
+
+        stability Issues;
+
+        Simulation "Marginally stable" by updating fast;
+
+        Simulation "Marginally stable" by computational damping;
+
+
+        Simulation "Marginally stable" by other approaches
+        {
+            discrete-time signal processing (compensate for delay using prediction/correction method);
+            programmable physiacal damping;
+            feeding forces in open-loop;
+        }
+    }
+
+    reconstruction;
+}
+
+
+
+The haptic knob
+{
+
+    hardware;
+
+    software;
+
+}
+
+
+A simple surface display
+
+Haptics device performace
+{
+
+    Rule 1: Where to make measurement is important
+    {
+        system's view: measured betwee motors and dsiplacement sensors;
+
+        user's view: measured at where the device is touched;
+    }
+
+
+    Rule 2: The load should be specified and controlled;
+
+    Rule 3: If forces are measured, the force sensor should be stationary;
+    
+    Rule 4: Sensors must ahve sufficient resolution;
+    
+    Rule 5: Haptics devices have serveral types of nonlinearities;
+
+}
