@@ -67,54 +67,215 @@ Force feedback
 
     Impedance vs Admittance approaches
     {
-        impedance: need energe to stop from moving;
+        impedance, need energe to stop from moving;
 
-        admittance: need energe to assist moving;
+        admittance, need energe to assist moving;
     }
 
-    Ideal vs Reality
+    Ideal vs Reality: difficulties
     {
 
-        Inertia;
+        ??? Inertia
+        {
+            device too light than the load;
+            device too light than the load;
+        }
 
-        Structural Dynamics;
+        ??? Structural Dynamics
+        {
+            structure mode;
+            resonances;     
+        }
 
-        Losses;
+        Losses
+        {
+            mechanical losses
+            {
+                1. backlsh in the joints: "equibalent damping";
+                2. friction;
+            }
+
+            electrical losses
+            {
+                ohmic losses;
+            }
+        }
 
     }
 
-    Kinematic structure;
+    Kinematic structure
+    {
+        haptics interfaces are generally parallel (rather than serial linkages): max strengthm, min inertia;
+
+        joints can be powered by
+        {
+            cable capstan;
+            direct motor drive;
+        }
+    }
 
 
-    Sensors;
+    Sensors
+    {
+        resolution in haptics
+        {
+            important for simulating virtual surface(fine texture);
+            not important for simulating poking onto a wall;
+        }
+    }
 
-    Actuators;
+    Actuators
+    {
+        good choice - DC motor:
+        {
+            torque is propotional to current;
 
-    Amplifiers;
+            three popular kinds
+            {
+                Wound DC motor
+                {
+                    normal;
+                }
+
+                Coreless motor (prefered in haptics)
+                {
+                    small size;
+                    rapid acceleration;
+                }
+
+                Brushless motor
+                {
+                    less overheating;
+                }
+            }
+        }
+
+    }
+
+    Amplifiers
+    {
+
+        current vs voltage
+        {
+
+            voltage regulation;
+
+            current regulation(prefered)
+            {
+                min electrical dynamics from inductance;
+            }
+        }
+
+        PWM vs analog
+        {
+            PWM amplifiers
+            {
+                cause radiate electric;
+                cause acoustic noise;
+
+                but cheap;
+            }
+
+            analog amplifiers
+            {
+                precise;
+                quiet;
+
+
+                but overheating;
+            }
+        }
+    }
 
     Control Issues
     {
 
-        Mechanics that can be simulated;
-
-        cross-cutting isssues;
-
-        stability Issues;
-
-        Simulation "Marginally stable" by updating fast;
-
-        Simulation "Marginally stable" by computational damping;
-
-
-        Simulation "Marginally stable" by other approaches
+        Mechanics that can be simulated
         {
-            discrete-time signal processing (compensate for delay using prediction/correction method);
-            programmable physiacal damping;
-            feeding forces in open-loop;
+            level 1
+            {
+                tool is fixed to virtual object;
+
+                penetrations
+                {
+                    hard tool - hard object;
+                    hard tool - soft object;
+                    soft tool - soft object;
+                }
+            }
+
+            level 2
+            {
+                sliding contact between tool and object;
+            }
+
+            level 3
+            {
+                object is allowed to translate and rotate;
+            }
+
+        }
+
+        cross-cutting isssues
+        {
+            Quantization caused calculation results lag behind the lasted measurement(Incorrect control output for current time point);
+        }
+
+        stability Issues
+        {
+            devices have nonlinearities;
+        }
+
+        Simulation "Marginally stable" approaches
+        {
+            By updating fast
+            {
+                ???;
+
+                need to decouple fast updating part from those not requiring fast updating;
+
+            }
+
+            By computational damping
+            {
+                damp system by feedback;
+                two limits
+                {
+                    hard to estimate velocity from position measurements;
+                    delay in feedback also cause destablizing;
+                }
+            }
+
+            By other approaches
+            {
+                discrete-time signal processing (compensate for delay using prediction/correction method);
+                programmable physiacal damping;
+                feeding forces in open-loop;
+            }
         }
     }
 
-    reconstruction;
+    reconstruction
+    {
+        zero-oder hold (usually used)
+        {
+            converting a discrete-time signal to a continuous-time signal;
+            holding each sample value for one sample interval;
+        }
+
+
+        low freq system
+        {
+            amplifiers handle reconstruction;
+            linkage of a device phtsically handle reconstruction;
+        }
+
+        high freq system
+        {
+            need low-pass reconstruction filter to handle;
+        }
+
+    }
 }
 
 
@@ -145,9 +306,9 @@ Haptics device performace
     Rule 2: The load should be specified and controlled;
 
     Rule 3: If forces are measured, the force sensor should be stationary;
-    
+
     Rule 4: Sensors must ahve sufficient resolution;
-    
+
     Rule 5: Haptics devices have serveral types of nonlinearities;
 
 }
