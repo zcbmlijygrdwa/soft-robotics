@@ -75,13 +75,16 @@ Force feedback
     Ideal vs Reality: difficulties
     {
 
-        ??? Inertia
+        Inertia
         {
-            device too light than the load;
-            device too light than the load;
+            when loaded(inertia)
+            {
+                motor runs at required freq with low amplitude;
+                motor runs at required amplitude with low freq;
+            }
         }
 
-        ??? Structural Dynamics
+        Structural Dynamics
         {
             structure mode;
             resonances;     
@@ -230,10 +233,11 @@ Force feedback
         {
             By updating fast
             {
-                ???;
+                updaint fast can give better resolution;
+
+                converge to losses because of sampling and quantization(no need to go faster);
 
                 need to decouple fast updating part from those not requiring fast updating;
-
             }
 
             By computational damping
