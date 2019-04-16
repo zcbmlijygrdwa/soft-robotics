@@ -1,0 +1,56 @@
+Haptic interfac categories
+{
+    Grounded
+    {
+        Remote Environment;
+        Virtual Environment;
+    }
+
+    Ungrounded
+    {
+        Remote Environment;
+        Virtual Environment;
+    }
+
+    Surface(Touch screen)
+    {
+        Remote Environment;
+        Virtual Environment;
+    }
+}
+
+haptic application categories
+{
+
+    Understand
+    {
+        user
+        {
+            to understand a user in remote task;
+            to understand a user in virtual task;
+        }
+
+        environment
+        {
+            to understand remote environment;
+            to understand virtual environment;
+        }
+    }
+
+
+    Change
+    {
+        user
+        {
+            to change a user in remote task;
+            to change a user in virtual task;
+        }
+
+        environment
+        {
+            to change a remote environment;
+            to change a birtual environment;
+        }
+    }
+}
+
